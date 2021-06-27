@@ -38,6 +38,7 @@ class HomePage extends StatelessWidget {
                               horizontal: 10, vertical: 20),
                           width: 100,
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
