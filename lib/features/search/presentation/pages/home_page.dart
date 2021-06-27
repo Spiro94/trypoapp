@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:trypoapp/features/search/presentation/pages/show_details_page.dart';
 
 import '../../../../core/error/failure.dart';
 import '../../../../dependency_injection.dart';
@@ -7,6 +8,7 @@ import '../../data/models/movie_model.dart';
 import '../../domain/usecases/get_saved_movies.dart';
 
 class HomePage extends StatelessWidget {
+  static String routeName = '/';
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -31,7 +33,13 @@ class HomePage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
-                          print('TAP');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ShowDetailsPage(
+                                  movie: r[index],
+                                ),
+                              ));
                         },
                         child: Container(
                           margin: EdgeInsets.symmetric(
@@ -42,9 +50,14 @@ class HomePage extends StatelessWidget {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
-                                child: Image(
-                                  image: NetworkImage(
-                                      'https://image.tmdb.org/t/p/w500${r[index].posterPath}'),
+                                child: Hero(
+                                  tag: r[index].id,
+                                  child: FadeInImage(
+                                    placeholder: AssetImage(
+                                        'assets/images/placeholder.png'),
+                                    image: NetworkImage(
+                                        'https://image.tmdb.org/t/p/w500${r[index].posterPath}'),
+                                  ),
                                 ),
                               ),
                               SizedBox(

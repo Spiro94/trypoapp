@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trypoapp/core/routes/routes.dart';
 
 import 'dependency_injection.dart';
 import 'features/search/presentation/pages/home_page.dart';
@@ -12,9 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: getRoutes(),
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: HomePage(),
+      initialRoute: HomePage.routeName,
     );
   }
 }
