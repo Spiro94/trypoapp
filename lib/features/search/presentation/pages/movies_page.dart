@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../widgets/search_bar.dart';
 
 import '../../../../core/error/failure.dart';
@@ -33,14 +34,72 @@ class MoviesPage extends StatelessWidget {
           future: instance<GetSavedMovies>().call(),
           builder: (context,
               AsyncSnapshot<Either<Failure, List<MovieModel>>> snapshot) {
-            Widget element = Center(
-              child: CircularProgressIndicator(),
-            );
+            Widget element = Expanded(
+                child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Loading data ...',
+                    style: GoogleFonts.montserrat(
+                      color: Colors.white,
+                    ),
+                  )
+                ],
+              ),
+            ));
             if (snapshot.hasError) {
-              element = Text('Error');
+              element = Expanded(
+                  child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.error,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Error obtaining data',
+                      style: GoogleFonts.montserrat(
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
+              ));
             }
             if (snapshot.hasData) {
-              snapshot.data!.fold((l) => element = Text('Error'), (r) {
+              snapshot.data!.fold(
+                  (l) => element = Expanded(
+                          child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.error,
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              'Error obtaining data',
+                              style: GoogleFonts.montserrat(
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      )), (r) {
                 element = Expanded(
                   child: GridView.builder(
                       physics: BouncingScrollPhysics(),

@@ -27,10 +27,13 @@ class ShowDataSourceImpl implements ShowDataSource {
 
   @override
   Future<List<TvShowModel>> getSavedTvShows() async {
-    //TODO: Obtain shows from json
+    List<TvShowModel> movies = [];
     await Future<void>.delayed(Duration(seconds: 2));
-    return [
-      TvShowModel(1, 'Serie 1', 'photo', 'photo', []),
-    ];
+    var jsonText = await rootBundle.loadString('assets/json/tv_shows.json');
+    var map = await json.decode(jsonText);
+    for (var movie in map['results']) {
+      movies.add(TvShowModel.fromJson(movie));
+    }
+    return movies;
   }
 }

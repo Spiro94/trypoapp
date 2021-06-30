@@ -1,0 +1,21 @@
+{
+    "results": [{
+        "id": 56570,
+        "name": "Outlander",
+        "backdrop_path": "/qutOe29dCGmT2JUlLPCqlzaQIo.jpg",
+        "poster_path": "/70PRIpG1phOyphejeLwi0K8zdJo.jpg",
+        "episodes": []
+    }, {
+        "id": 60625,
+        "name": "Rick and Morty",
+        "backdrop_path": "/eV3XnUul4UfIivz3kxgeIozeo50.jpg",
+        "poster_path": "/8kOWDBK6XlPUzckuHDo3wwVRFwt.jpg",
+        "episodes": []
+    }, {
+        "id": 1402,
+        "name": "The Walking Dead",
+        "backdrop_path": "/uro2Khv7JxlzXtLb8tCIbRhkb9E.jpg",
+        "poster_path": "/rqeYMLryjcawh2JeRpCVUDXYM5b.jpg",
+        "episodes": []
+    }]
+}
