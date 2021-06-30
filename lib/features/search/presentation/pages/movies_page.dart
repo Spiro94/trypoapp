@@ -14,9 +14,11 @@ class MoviesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var orientation = MediaQuery.of(context).orientation;
     double viewportHeight = size.height;
     double viewportWidth = size.width;
-    double width = size.width / 3;
+    int columns = orientation == Orientation.landscape ? 5 : 3;
+    double width = size.width / columns;
     return SafeArea(
         child: Column(
       children: [
@@ -43,7 +45,7 @@ class MoviesPage extends StatelessWidget {
                   child: GridView.builder(
                       physics: BouncingScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+                        crossAxisCount: columns,
                         childAspectRatio: 1 / 1.5,
                       ),
                       scrollDirection: Axis.vertical,

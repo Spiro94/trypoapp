@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.black,
       ),
-      title: 'Material App',
+      title: 'Trypoapp',
       initialRoute: HomePage.routeName,
     );
   }
