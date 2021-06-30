@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../features/search/presentation/pages/home_page.dart';
 import '../../features/search/presentation/pages/show_details_page.dart';
 

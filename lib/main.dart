@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trypoapp/core/routes/routes.dart';
+import 'core/routes/routes.dart';
 
 import 'dependency_injection.dart';
 import 'features/search/presentation/pages/home_page.dart';
@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: getRoutes(),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.black,
+      ),
       title: 'Material App',
       initialRoute: HomePage.routeName,
     );
