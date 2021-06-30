@@ -13,68 +13,102 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    double viewportHeight = size.height;
+    double viewportWidth = size.width;
+    double width = size.width / 3;
+
     return Scaffold(
-        body: SafeArea(
-      child: FutureBuilder(
-        future: instance<GetSavedMovies>().call(),
-        builder: (context,
-            AsyncSnapshot<Either<Failure, List<MovieModel>>> snapshot) {
-          Widget element = CircularProgressIndicator();
-          if (snapshot.hasError) {
-            element = Text('Error');
-          }
-          if (snapshot.hasData) {
-            snapshot.data!.fold((l) => element = Text('Error'), (r) {
-              element = Container(
-                height: 250,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: r.length,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ShowDetailsPage(
-                                  movie: r[index],
-                                ),
-                              ));
-                        },
-                        child: Container(
-                          margin: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 20),
-                          width: 100,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Hero(
-                                  tag: r[index].id,
-                                  child: FadeInImage(
-                                    placeholder: AssetImage(
-                                        'assets/images/placeholder.png'),
-                                    image: NetworkImage(
-                                        'https://image.tmdb.org/t/p/w500${r[index].posterPath}'),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Text(r[index].name),
-                            ],
-                          ),
-                        ),
-                      );
-                    }),
+      backgroundColor: Colors.black,
+      body: SafeArea(
+          child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            height: viewportHeight * .1,
+            child: Center(
+              child: TextField(
+                textCapitalization: TextCapitalization.words,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                  ),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+          ),
+          FutureBuilder(
+            future: instance<GetSavedMovies>().call(),
+            builder: (context,
+                AsyncSnapshot<Either<Failure, List<MovieModel>>> snapshot) {
+              Widget element = Center(
+                child: CircularProgressIndicator(),
               );
-            });
-          }
-          return element;
-        },
+              if (snapshot.hasError) {
+                element = Text('Error');
+              }
+              if (snapshot.hasData) {
+                snapshot.data!.fold((l) => element = Text('Error'), (r) {
+                  element = Expanded(
+                    child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          childAspectRatio: 1 / 1.5,
+                        ),
+                        scrollDirection: Axis.vertical,
+                        itemCount: r.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ShowDetailsPage(
+                                      movie: r[index],
+                                    ),
+                                  ));
+                            },
+                            child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Hero(
+                                    tag: r[index].id,
+                                    child: FadeInImage(
+                                      height: width * 1.5,
+                                      placeholder: AssetImage(
+                                          'assets/images/placeholder.png'),
+                                      image: NetworkImage(
+                                          'https://image.tmdb.org/t/p/w500${r[index].posterPath}'),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        }),
+                  );
+                });
+              }
+              return element;
+            },
+          ),
+        ],
+      )),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.movie),
+            label: 'Movies',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.movie_filter_sharp),
+            label: 'TV Series',
+          ),
+        ],
       ),
-    ));
+    );
   }
 }
