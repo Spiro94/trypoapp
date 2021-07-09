@@ -1,4 +1,3 @@
-import '../../domain/entities/alert.dart';
 import '../../domain/entities/movie.dart';
 import 'alert_model.dart';
 
@@ -8,7 +7,7 @@ class MovieModel extends Movie {
     String name,
     String posterPath,
     String backdropPath,
-    List<Alert> alerts,
+    List<AlertModel> alerts,
   ) : super(
           id,
           name,

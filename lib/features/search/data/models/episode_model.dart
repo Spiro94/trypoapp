@@ -1,4 +1,3 @@
-import '../../domain/entities/alert.dart';
 import '../../domain/entities/episode.dart';
 import 'alert_model.dart';
 
@@ -6,7 +5,7 @@ class EpisodeModel extends Episode {
   EpisodeModel(
     int season,
     int episode,
-    List<Alert> alerts,
+    List<AlertModel> alerts,
   ) : super(
           season,
           episode,

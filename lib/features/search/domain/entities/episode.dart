@@ -5,5 +5,9 @@ class Episode {
   int episode;
   List<Alert> alerts;
 
-  Episode(this.season, this.episode, this.alerts);
+  Episode(
+    this.season,
+    this.episode,
+    this.alerts,
+  );
 }

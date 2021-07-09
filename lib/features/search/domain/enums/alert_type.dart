@@ -1,1 +1,1 @@
-enum AlertType { Bajo, Medio, Alto }
+enum AlertType { Low, Moderate, High }

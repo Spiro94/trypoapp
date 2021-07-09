@@ -4,7 +4,84 @@
         "name": "Outlander",
         "backdrop_path": "/qutOe29dCGmT2JUlLPCqlzaQIo.jpg",
         "poster_path": "/70PRIpG1phOyphejeLwi0K8zdJo.jpg",
-        "episodes": []
+        "episodes": [{
+                "season": 1,
+                "episode": 2,
+                "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                }, {
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Moderate"
+                }]
+            }, {
+                "season": 1,
+                "episode": 3,
+                "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                }, {
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Moderate"
+                }]
+            },
+            {
+                "season": 2,
+                "episode": 6,
+                "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                }, {
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Moderate"
+                }]
+            },
+            {
+                "season": 3,
+                "episode": 3,
+                "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                }, {
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Moderate"
+                }]
+            },
+            {
+                "season": 5,
+                "episode": 3,
+                "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                }, {
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Moderate"
+                }]
+            },
+            {
+                "season": 5,
+                "episode": 10,
+                "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                }, {
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Moderate"
+                }]
+            }
+        ]
     }, {
         "id": 60625,
         "name": "Rick and Morty",

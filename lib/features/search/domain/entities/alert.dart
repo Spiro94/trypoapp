@@ -1,9 +1,14 @@
 import '../enums/alert_type.dart';
+import 'moment.dart';
 
 class Alert {
-  DateTime begins;
-  DateTime ends;
+  Moment begins;
+  Moment ends;
   AlertType type;
 
-  Alert(this.begins, this.ends, this.type);
+  Alert(
+    this.begins,
+    this.ends,
+    this.type,
+  );
 }

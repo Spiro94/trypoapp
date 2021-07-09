@@ -1,10 +1,12 @@
+import 'package:trypoapp/features/search/data/models/moment_model.dart';
+
 import '../../domain/entities/alert.dart';
 import '../../domain/enums/alert_type.dart';
 
 class AlertModel extends Alert {
   AlertModel(
-    DateTime begins,
-    DateTime ends,
+    MomentModel begins,
+    MomentModel ends,
     AlertType type,
   ) : super(
           begins,
@@ -14,9 +16,10 @@ class AlertModel extends Alert {
 
   factory AlertModel.fromJson(Map<String, dynamic> json) {
     return AlertModel(
-      json['begins'],
-      json['ends'],
-      json['type'],
+      MomentModel.fromJson(json['begins']),
+      MomentModel.fromJson(json['ends']),
+      AlertType.values
+          .firstWhere((e) => e.toString() == 'AlertType.' + json['type']),
     );
   }
 }

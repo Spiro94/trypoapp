@@ -4,64 +4,184 @@
             "title": "The Purge",
             "backdrop_path": "/siBfSB55FBc7IdvgtApq6NaXNHw.jpg",
             "poster_path": "/1x4fHaDdlpWT5P2UV4ClKguWbTE.jpg",
-            "alerts": []
+            "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "High"
+                },
+                {
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "Moderate"
+                },
+                {
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "Moderate"
+                }
+            ]
         }, {
             "id": 150540,
             "title": "Inside Out",
             "backdrop_path": "/okJXzeIpbdx7q8rQjJwBNr8VTEk.jpg",
             "poster_path": "/lRHE0vzf3oYJrhbsHXjIkF4Tl5A.jpg",
-            "alerts": []
+            "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "High"
+                }
+            ]
         },
         {
             "id": 496243,
             "title": "Parasite",
             "backdrop_path": "/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg",
             "poster_path": "/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
-            "alerts": []
+            "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "High"
+                }
+            ]
         },
         {
             "id": 520763,
             "title": "A Quiet Place Part II",
             "backdrop_path": "/z2UtGA1WggESspi6KOXeo66lvLx.jpg",
             "poster_path": "/4q2hz2m8hubgvijz8Ez0T2Os2Yv.jpg",
-            "alerts": []
+            "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "High"
+                }
+            ]
         }, {
             "id": 299534,
             "title": "Avengers: Endgame",
             "backdrop_path": "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
             "poster_path": "/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
-            "alerts": []
+            "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "High"
+                }
+            ]
         }, {
             "id": 503736,
             "title": "Army of the Dead",
             "backdrop_path": "/9WlJFhOSCPnaaSmsrv0B4zA8iUb.jpg",
             "poster_path": "/z8CExJekGrEThbpMXAmCFvvgoJR.jpg",
-            "alerts": []
+            "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "High"
+                }
+            ]
         }, {
             "id": 811367,
             "title": "22 vs. Earth",
             "backdrop_path": "/xmeTp6can93XCqMuOJ0YEGJbDFK.jpg",
             "poster_path": "/32vLDKSzcCMh55zqqaSqqUA8naz.jpg",
-            "alerts": []
+            "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "High"
+                }
+            ]
         }, {
             "id": 458576,
             "title": "Monster Hunter",
             "backdrop_path": "/z8TvnEVRenMSTemxYZwLGqFofgF.jpg",
             "poster_path": "/1UCOF11QCw8kcqvce8LKOO6pimh.jpg",
-            "alerts": []
+            "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "High"
+                }
+            ]
         },
         {
             "id": 602269,
             "title": "The Little Things",
             "backdrop_path": "/vfuzELmhBjBTswXj2Vqxnu5ge4g.jpg",
             "poster_path": "/tLO1aD1ghdtVMT32z2sRmzgYKYd.jpg",
-            "alerts": []
+            "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "High"
+                }
+            ]
         }, {
             "id": 429617,
             "title": "Spider-Man: Far From Home",
             "backdrop_path": "/8XiTPU1zfy41Xgg96TCHXj4uQJf.jpg",
             "poster_path": "/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg",
-            "alerts": []
+            "alerts": [{
+                    "begins": { "hour": 1, "minute": 20, "second": 5 },
+                    "ends": { "hour": 1, "minute": 40, "second": 52 },
+                    "type": "Low"
+                },
+                {
+                    "begins": { "hour": 0, "minute": 1, "second": 5 },
+                    "ends": { "hour": 0, "minute": 5, "second": 10 },
+                    "type": "High"
+                }
+            ]
         }
     ]
 }

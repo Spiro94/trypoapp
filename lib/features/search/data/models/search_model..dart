@@ -2,15 +2,13 @@ import '../../domain/entities/search.dart';
 
 class SearchModel extends Search {
   SearchModel(
-    int id,
-    String name,
-    String posterPath,
-    String backdropPath,
-  ) : super(
+      int id, String name, String posterPath, String backdropPath, String type)
+      : super(
           id,
           name,
           posterPath,
           backdropPath,
+          type,
         );
 
   factory SearchModel.fromJson(Map<String, dynamic> json) {
@@ -19,6 +17,7 @@ class SearchModel extends Search {
       json['title'],
       json['poster_path'] ?? '',
       json['backdrop_path'] ?? '',
+      '',
     );
   }
 }
