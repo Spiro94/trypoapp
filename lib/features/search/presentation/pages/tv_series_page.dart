@@ -67,6 +67,11 @@ class _TvSeriesPageState extends State<TvSeriesPage> {
           hintText: 'Search TV series',
           onChanged: (String text) {},
           controller: _controller,
+          onClosePressed: () {
+            _filteredList = _tvShowsList;
+            _controller.clear();
+            // FocusScope.of(context).unfocus();
+          },
         ),
         SizedBox(
           height: 5,

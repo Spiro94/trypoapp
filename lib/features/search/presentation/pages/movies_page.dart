@@ -69,7 +69,7 @@ class _MoviesPageState extends State<MoviesPage> {
           onClosePressed: () {
             _filteredList = _moviesList;
             _controller.clear();
-            FocusScope.of(context).unfocus();
+            // FocusScope.of(context).unfocus();
           },
         ),
         SizedBox(
