@@ -1,3 +1,3 @@
-abstract class UseCase<Type> {
-  Type call();
+abstract class UseCase<Type, Params> {
+  Type call(Params params);
 }

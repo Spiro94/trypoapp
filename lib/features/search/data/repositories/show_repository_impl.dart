@@ -28,4 +28,24 @@ class ShowRepositoryImpl implements ShowRepository {
       return Left(ServerFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, List<MovieModel>>> searchSavedMovies(
+      String query) async {
+    try {
+      return Right(await dataSource.searchSavedMovies(query));
+    } catch (e) {
+      return Left(ServerFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<TvShowModel>>> searchSavedTvShows(
+      String query) async {
+    try {
+      return Right(await dataSource.searchSavedTvShows(query));
+    } catch (e) {
+      return Left(ServerFailure());
+    }
+  }
 }

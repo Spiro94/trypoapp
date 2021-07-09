@@ -1,149 +1,158 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../core/error/failure.dart';
 import '../../../../dependency_injection.dart';
 import '../../data/models/tv_show_model.dart';
 import '../../domain/usecases/get_saved_tv_shows.dart';
+import '../widgets/loader.dart';
 import '../widgets/search_bar.dart';
 import 'show_details_page.dart';
 
-class TvSeriesPage extends StatelessWidget {
+class TvSeriesPage extends StatefulWidget {
   const TvSeriesPage({Key? key}) : super(key: key);
+
+  @override
+  _TvSeriesPageState createState() => _TvSeriesPageState();
+}
+
+class _TvSeriesPageState extends State<TvSeriesPage> {
+  bool _isLoading = false;
+  bool _error = false;
+  List<TvShowModel> _tvShowsList = [];
+  List<TvShowModel> _filteredList = [];
+  late TextEditingController _controller = TextEditingController();
+  String _searchQuery = '';
+
+  @override
+  void initState() {
+    _getSeries();
+    _controller.addListener(() {
+      _filteredList = _tvShowsList;
+      if (_controller.text.isEmpty) {
+        _searchQuery = '';
+      } else {
+        _searchQuery = _controller.text;
+      }
+      setState(() {});
+    });
+    super.initState();
+  }
+
+  void _getSeries() async {
+    _isLoading = true;
+    var futureResult = await instance<GetSavedTvShows>().call(NoParams());
+    _isLoading = false;
+    setState(() {
+      futureResult.fold((l) => _error = true, (r) => _tvShowsList = r);
+      _filteredList = _tvShowsList;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var orientation = MediaQuery.of(context).orientation;
     double viewportHeight = size.height;
-    double viewportWidth = size.width;
-    double width = size.width / 3;
+
+    int columns = orientation == Orientation.landscape ? 5 : 3;
+    double width = size.width / columns;
+
+    _validateSearch();
+
     return SafeArea(
         child: Column(
       children: [
         SearchBar(
           viewportHeight: viewportHeight,
           hintText: 'Search TV series',
+          onChanged: (String text) {},
+          controller: _controller,
         ),
         SizedBox(
-          height: 20,
+          height: 5,
         ),
-        FutureBuilder(
-          future: instance<GetSavedTvShows>().call(),
-          builder: (context,
-              AsyncSnapshot<Either<Failure, List<TvShowModel>>> snapshot) {
-            Widget element = Expanded(
-                child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircularProgressIndicator(
+        if (_isLoading)
+          Expanded(
+              child: Center(
+            child: Loader(),
+          ))
+        else if (_error)
+          Expanded(
+              child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.error,
+                  color: Colors.white,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Error obtaining data',
+                  style: GoogleFonts.montserrat(
                     color: Colors.white,
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Loading data ...',
-                    style: GoogleFonts.montserrat(
-                      color: Colors.white,
-                    ),
-                  )
-                ],
-              ),
-            ));
-            if (snapshot.hasError) {
-              element = Expanded(
-                  child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.error,
-                      color: Colors.white,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Error obtaining data',
-                      style: GoogleFonts.montserrat(
-                        color: Colors.white,
-                      ),
-                    )
-                  ],
+                )
+              ],
+            ),
+          ))
+        else
+          Expanded(
+            child: GridView.builder(
+                physics: BouncingScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: columns,
+                  childAspectRatio: 1 / 1.5,
                 ),
-              ));
-            }
-            if (snapshot.hasData) {
-              snapshot.data!.fold(
-                  (l) => element = Expanded(
-                          child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.error,
-                              color: Colors.white,
+                scrollDirection: Axis.vertical,
+                itemCount: _filteredList.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShowDetailsPage(
+                              tvShow: _filteredList[index],
                             ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              'Error obtaining data',
-                              style: GoogleFonts.montserrat(
-                                color: Colors.white,
+                          ));
+                    },
+                    child: Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Hero(
+                            tag: _filteredList[index].id,
+                            child: FadeInImage(
+                              height: width * 1.5,
+                              placeholder: AssetImage(
+                                'assets/images/placeholder.png',
                               ),
-                            )
-                          ],
-                        ),
-                      )), (r) {
-                element = Expanded(
-                  child: GridView.builder(
-                      physics: BouncingScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        childAspectRatio: 1 / 1.5,
-                      ),
-                      scrollDirection: Axis.vertical,
-                      itemCount: r.length,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ShowDetailsPage(
-                                    tvShow: r[index],
-                                  ),
-                                ));
-                          },
-                          child: Container(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Hero(
-                                  tag: r[index].id,
-                                  child: FadeInImage(
-                                    height: width * 1.5,
-                                    placeholder: AssetImage(
-                                        'assets/images/placeholder.png'),
-                                    image: NetworkImage(
-                                        'https://image.tmdb.org/t/p/w500${r[index].posterPath}'),
-                                  ),
-                                ),
-                              ],
+                              image: NetworkImage(
+                                  'https://image.tmdb.org/t/p/w500${_filteredList[index].posterPath}'),
                             ),
                           ),
-                        );
-                      }),
-                );
-              });
-            }
-            return element;
-          },
-        ),
+                        ],
+                      ),
+                    ),
+                  );
+                }),
+          )
       ],
     ));
+  }
+
+  void _validateSearch() {
+    if (_searchQuery.isNotEmpty) {
+      List<TvShowModel> temp = [];
+      _filteredList.forEach((series) {
+        if (series.name.toLowerCase().contains(_searchQuery.toLowerCase())) {
+          temp.add(series);
+        }
+      });
+      _filteredList = temp;
+    }
   }
 }

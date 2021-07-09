@@ -4,11 +4,17 @@ import 'package:google_fonts/google_fonts.dart';
 class SearchBar extends StatelessWidget {
   final double viewportHeight;
   final String hintText;
+  final TextEditingController controller;
+  final ValueChanged<String>? onChanged;
+  final VoidCallback? onClosePressed;
 
   const SearchBar({
     Key? key,
     required this.viewportHeight,
     required this.hintText,
+    required this.controller,
+    this.onChanged,
+    this.onClosePressed,
   }) : super(key: key);
 
   @override
@@ -18,6 +24,8 @@ class SearchBar extends StatelessWidget {
       height: viewportHeight * .1,
       child: Center(
         child: TextField(
+          controller: controller,
+          onChanged: onChanged,
           style: GoogleFonts.montserrat(
             color: Colors.white,
           ),
@@ -32,6 +40,14 @@ class SearchBar extends StatelessWidget {
               Icons.search,
               color: Colors.white,
             ),
+            suffixIcon: controller.text.isNotEmpty
+                ? IconButton(
+                    onPressed: onClosePressed,
+                    icon: Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    ))
+                : null,
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 15,
             ),
