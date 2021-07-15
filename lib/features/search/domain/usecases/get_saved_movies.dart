@@ -15,5 +15,3 @@ class GetSavedMovies
     return await repository.getSavedMovies();
   }
 }
-
-class NoParams {}

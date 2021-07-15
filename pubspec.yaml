@@ -1,7 +1,7 @@
 name: trypoapp
 description: A new Flutter project.
 
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -11,15 +11,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  collection: ^1.15.0
   cupertino_icons: ^1.0.2
   dartz: 0.10.0-nullsafety.2
+  flutter_bloc: ^7.0.1
+  flutter_launcher_icons: ^0.9.0
+  flutter_native_splash: ^1.1.8
+  flutter_speed_dial: ^3.0.5
   get_it: ^7.1.3
   google_fonts: ^2.1.0
-  flutter_speed_dial: ^3.0.5
-  flutter_native_splash: ^1.1.8 #Versión compatible con flutter_launcher_icons 0.9.0
-  flutter_launcher_icons: ^0.9.0
-  collection: ^1.15.0
-
+  lint: ^1.5.3
 
 dev_dependencies:
   flutter_test:

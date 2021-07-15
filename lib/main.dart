@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'core/routes/routes.dart';
 
-import 'dependency_injection.dart';
+import 'dependency_injection/dependency_injection.dart';
 import 'features/search/presentation/pages/home_page.dart';
 
 void main() async {

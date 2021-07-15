@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/usecase/usecase.dart';
 
-import '../../../../dependency_injection.dart';
+import '../../../../dependency_injection/dependency_injection.dart';
 import '../../data/models/movie_model.dart';
 import '../../domain/usecases/get_saved_movies.dart';
 import '../widgets/loader.dart';

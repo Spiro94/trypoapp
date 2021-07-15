@@ -15,5 +15,3 @@ class GetSavedTvShows
     return await repository.getSavedTvShows();
   }
 }
-
-class NoParams {}

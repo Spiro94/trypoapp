@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/usecase/usecase.dart';
 
-import '../../../../dependency_injection.dart';
+import '../../../../dependency_injection/dependency_injection.dart';
 import '../../data/models/tv_show_model.dart';
 import '../../domain/usecases/get_saved_tv_shows.dart';
 import '../widgets/loader.dart';
@@ -70,7 +71,6 @@ class _TvSeriesPageState extends State<TvSeriesPage> {
           onClosePressed: () {
             _filteredList = _tvShowsList;
             _controller.clear();
-            // FocusScope.of(context).unfocus();
           },
         ),
         SizedBox(
