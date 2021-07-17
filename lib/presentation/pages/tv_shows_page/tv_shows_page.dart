@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../bloc/shows_bloc/movies_bloc.dart';
-
-import '../../bloc/shows_bloc/tv_shows_bloc.dart';
+import 'package:trypoapp/presentation/bloc/show_bloc/tv_shows_bloc.dart';
+import '../../bloc/show_bloc/movies_bloc.dart';
 
 import '../../widgets/loader.dart';
 import '../../widgets/search_bar.dart';
