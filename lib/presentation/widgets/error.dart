@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'text.dart';
 
 class ErrorWidget extends StatelessWidget {
   final String message;
@@ -10,6 +11,7 @@ class ErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Expanded(
         child: Center(
       child: Column(
@@ -17,16 +19,14 @@ class ErrorWidget extends StatelessWidget {
         children: [
           Icon(
             Icons.error,
-            color: Colors.white,
+            color: theme.accentColor,
           ),
           SizedBox(
             height: 10,
           ),
-          Text(
+          TextWidget(
             message,
-            style: GoogleFonts.montserrat(
-              color: Colors.white,
-            ),
+            color: theme.accentColor,
           )
         ],
       ),

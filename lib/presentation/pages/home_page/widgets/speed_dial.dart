@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/themes/font_theme.dart';
+import '../../../widgets/text.dart';
 
 class SpeedDialWidget extends StatelessWidget {
   const SpeedDialWidget({
@@ -9,40 +11,43 @@ class SpeedDialWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return SpeedDial(
-      label: Text(
+      label: TextWidget(
         'Add alert',
-        style: GoogleFonts.montserrat(
-          fontWeight: FontWeight.w500,
-        ),
+        fontWeight: FontWeight.w500,
       ),
       icon: Icons.add,
       activeIcon: Icons.close,
       visible: true,
       curve: Curves.bounceIn,
-      overlayColor: Colors.black,
+      overlayColor: theme.primaryColor,
       overlayOpacity: 0.5,
       onOpen: () => print('OPENING DIAL'),
       onClose: () => print('DIAL CLOSED'),
       tooltip: 'Add alert',
       heroTag: 'speed-dial-hero-tag',
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
+      backgroundColor: theme.accentColor,
+      foregroundColor: theme.primaryColor,
       elevation: 8.0,
       shape: CircleBorder(),
       children: [
         SpeedDialChild(
           child: Icon(Icons.movie),
-          backgroundColor: Colors.white,
+          backgroundColor: theme.accentColor,
           label: 'Movies',
-          labelStyle: GoogleFonts.montserrat(),
+          labelStyle: FontTheme.font.copyWith(
+            color: theme.primaryColor,
+          ),
           onTap: () => print('FIRST CHILD'),
         ),
         SpeedDialChild(
           child: Icon(Icons.tv),
-          backgroundColor: Colors.white,
+          backgroundColor: theme.accentColor,
           label: 'TV Series',
-          labelStyle: GoogleFonts.montserrat(),
+          labelStyle: FontTheme.font.copyWith(
+            color: theme.primaryColor,
+          ),
           onTap: () => print('SECOND CHILD'),
         ),
       ],

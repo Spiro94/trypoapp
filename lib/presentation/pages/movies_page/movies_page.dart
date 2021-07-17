@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/show_bloc/movies_bloc.dart';
-
 import '../../widgets/loader.dart';
 import '../../widgets/search_bar.dart';
 import '../show_details_page/show_details_page.dart';

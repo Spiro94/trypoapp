@@ -1,12 +1,13 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../widgets/text.dart';
 
 import '../../../data/models/alert_model.dart';
 import '../../../data/models/movie_model.dart';
 import '../../../data/models/tv_show_model.dart';
 import '../../../domain/entities/episode.dart';
-import '../../widgets/alert_widget.dart';
+import 'widgets/alert_widget.dart';
 
 class ShowDetailsPage extends StatelessWidget {
   static String routeName = '/show_details';
@@ -16,13 +17,13 @@ class ShowDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
           brightness: Brightness.dark,
-          title: Text(
+          title: TextWidget(
             movie == null ? 'TV Show details' : 'Movie details',
-            style: GoogleFonts.montserrat(),
           ),
         ),
         body: ListView(physics: BouncingScrollPhysics(), children: [
@@ -37,53 +38,47 @@ class ShowDetailsPage extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          Text(
+          TextWidget(
             movie == null ? tvShow!.name : movie!.name,
-            style: GoogleFonts.montserrat(
-              color: Colors.white,
-              fontSize: 30,
-            ),
+            color: theme.accentColor,
+            fontSize: 30,
             textAlign: TextAlign.center,
           ),
           SizedBox(
             height: 20,
           ),
-          Text(
+          TextWidget(
             'Identified alerts',
             textAlign: TextAlign.center,
-            style: GoogleFonts.montserrat(color: Colors.white),
+            color: theme.accentColor,
           ),
           SizedBox(
             height: 20,
           ),
           movie == null
-              ? _buildTvShowsAlerts(context)
-              : _buildMovieAlerts(context)
+              ? _buildTvShowsAlerts(context, theme)
+              : _buildMovieAlerts(context, theme)
         ]));
   }
 
-  Widget _buildMovieAlerts(BuildContext context) {
-    return Column(
-        children: movie!.alerts
-            .map(
-              (alert) => AlertWidget(alert: alert as AlertModel),
-            )
-            .toList());
-  }
+  Widget _buildMovieAlerts(BuildContext context, ThemeData theme) => Column(
+      children: movie!.alerts
+          .map(
+            (alert) => AlertWidget(alert: alert as AlertModel),
+          )
+          .toList());
 
-  Widget _buildTvShowsAlerts(BuildContext context) {
+  Widget _buildTvShowsAlerts(BuildContext context, ThemeData theme) {
     final filtro = groupBy(tvShow!.episodes, (Episode e) => e.season);
     List<Widget> episodeWidgets = [];
     filtro.forEach((key, episodes) {
       episodeWidgets.add(Column(
         children: [
-          Text(
+          TextWidget(
             'Season ${key.toString()}',
-            style: GoogleFonts.montserrat(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
+            fontSize: 20,
+            color: theme.accentColor,
+            fontWeight: FontWeight.bold,
           ),
           SizedBox(
             height: 10,
@@ -92,12 +87,10 @@ class ShowDetailsPage extends StatelessWidget {
             children: episodes
                 .map((episode) => Column(
                       children: [
-                        Text(
+                        TextWidget(
                           'Episode ${episode.episode.toString()}',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 15,
-                            color: Colors.white,
-                          ),
+                          fontSize: 15,
+                          color: theme.accentColor,
                         ),
                         Column(
                           children: episode.alerts

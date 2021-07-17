@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trypoapp/presentation/bloc/show_bloc/movies_bloc.dart';
-import 'package:trypoapp/presentation/bloc/show_bloc/tv_shows_bloc.dart';
+import 'core/themes/app_theme.dart';
+import 'presentation/bloc/show_bloc/movies_bloc.dart';
+import 'presentation/bloc/show_bloc/tv_shows_bloc.dart';
 
 import 'presentation/pages/home_page/home_page.dart';
 
@@ -43,9 +44,7 @@ class MaterialWidget extends StatelessWidget {
     return MaterialApp(
       routes: getRoutes(),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.black,
-      ),
+      theme: AppTheme.darkTheme,
       title: 'Trypoapp',
       initialRoute: HomePage.routeName,
     );

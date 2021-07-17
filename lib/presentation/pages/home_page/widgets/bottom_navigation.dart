@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/themes/font_theme.dart';
 
 class BottomNavigationWidget extends StatelessWidget {
   final ValueChanged<int> onTap;
@@ -15,11 +16,8 @@ class BottomNavigationWidget extends StatelessWidget {
     return BottomNavigationBar(
       onTap: onTap,
       currentIndex: currentIndex,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.grey,
-      selectedLabelStyle: GoogleFonts.montserrat(),
-      unselectedLabelStyle: GoogleFonts.montserrat(),
-      backgroundColor: Color.fromARGB(255, 52, 50, 50),
+      selectedLabelStyle: FontTheme.font,
+      unselectedLabelStyle: FontTheme.font,
       items: [
         BottomNavigationBarItem(
           icon: Icon(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../core/themes/font_theme.dart';
 
 class SearchBar extends StatelessWidget {
   final double viewportHeight;
@@ -19,6 +20,7 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       height: viewportHeight * .1,
@@ -26,43 +28,43 @@ class SearchBar extends StatelessWidget {
         child: TextField(
           controller: controller,
           onChanged: onChanged,
-          style: GoogleFonts.montserrat(
-            color: Colors.white,
+          style: FontTheme.font.copyWith(
+            color: theme.accentColor,
           ),
-          cursorColor: Colors.white,
+          cursorColor: theme.accentColor,
           textCapitalization: TextCapitalization.words,
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: GoogleFonts.montserrat(
-              color: Colors.grey[600],
+            hintStyle: FontTheme.font.copyWith(
+              color: theme.unselectedWidgetColor,
             ),
             prefixIcon: Icon(
               Icons.search,
-              color: Colors.white,
+              color: theme.accentColor,
             ),
             suffixIcon: controller.text.isNotEmpty
                 ? IconButton(
                     onPressed: onClosePressed,
                     icon: Icon(
                       Icons.close,
-                      color: Colors.white,
+                      color: theme.accentColor,
                     ))
                 : null,
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 15,
             ),
-            enabledBorder: getBorder(),
-            focusedBorder: getBorder(),
+            enabledBorder: getBorder(theme),
+            focusedBorder: getBorder(theme),
           ),
         ),
       ),
     );
   }
 
-  OutlineInputBorder getBorder() {
+  OutlineInputBorder getBorder(ThemeData theme) {
     return OutlineInputBorder(
         borderSide: new BorderSide(
-          color: Colors.white,
+          color: theme.accentColor,
         ),
         borderRadius: BorderRadius.circular(30));
   }

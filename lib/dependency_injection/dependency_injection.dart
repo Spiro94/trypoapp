@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import 'package:trypoapp/presentation/bloc/show_bloc/movies_bloc.dart';
-import 'package:trypoapp/presentation/bloc/show_bloc/tv_shows_bloc.dart';
+import '../presentation/bloc/show_bloc/movies_bloc.dart';
+import '../presentation/bloc/show_bloc/tv_shows_bloc.dart';
 
 import '../data/datasources/show_data_source.dart';
 import '../data/repositories/show_repository_impl.dart';
