@@ -1,4 +1,6 @@
-class Show {
+import 'package:equatable/equatable.dart';
+
+class Show extends Equatable {
   final int id;
   final String name;
   final String posterPath;
@@ -10,4 +12,12 @@ class Show {
     this.posterPath,
     this.backdropPath,
   );
+
+  @override
+  List<Object?> get props => [
+        id,
+        name,
+        posterPath,
+        backdropPath,
+      ];
 }

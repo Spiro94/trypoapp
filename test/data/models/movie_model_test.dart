@@ -1,26 +1,45 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:trypoapp/data/models/movie_model.dart';
+import 'package:trypoapp/domain/entities/movie.dart';
 import 'package:trypoapp/domain/entities/show.dart';
 
-void main() {
-  group('MovieModel', () {
-    late final MovieModel movieModel;
-    setUpAll(() {
-      movieModel = MovieModel(
-        1,
-        'name',
-        'posterPath',
-        'backdropPath',
-        [],
-      );
-    });
-    test('should be a subclass of Show', () async {
-      //arrange
+import '../../fixtures/fixture_reader.dart';
 
+void main() {
+  final MovieModel movieModel = MovieModel(
+    158015,
+    'The Purge',
+    '/1x4fHaDdlpWT5P2UV4ClKguWbTE.jpg',
+    '/siBfSB55FBc7IdvgtApq6NaXNHw.jpg',
+    [],
+  );
+  test('should be a subclass of Movie entity', () async {
+    //arrange
+
+    //act
+
+    //assert
+    expect(movieModel, isA<Movie>());
+  });
+  test('should be a subclass of Show entity', () async {
+    //arrange
+
+    //act
+
+    //assert
+    expect(movieModel, isA<Show>());
+  });
+  group('fromJson', () {
+    test('should return a valid model when the JSON is valid', () async {
+      //arrange
+      final MovieModel result =
+          MovieModel.fromJson(json.decode(fixture('models.json'))['movie']);
       //act
 
       //assert
-      expect(movieModel, isA<Show>());
+      expect(result, movieModel);
     });
   });
 }

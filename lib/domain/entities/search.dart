@@ -1,7 +1,7 @@
 import 'show.dart';
 
 class Search extends Show {
-  String type;
+  final String type;
 
   Search(
     int id,
@@ -10,5 +10,10 @@ class Search extends Show {
     String backdropPath,
     String type,
   )   : this.type = type,
-        super(id, name, posterPath, backdropPath);
+        super(
+          id,
+          name,
+          posterPath,
+          backdropPath,
+        );
 }

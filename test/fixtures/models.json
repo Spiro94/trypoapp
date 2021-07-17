@@ -1,0 +1,16 @@
+{
+    "movie": {
+        "id": 158015,
+        "title": "The Purge",
+        "backdrop_path": "/siBfSB55FBc7IdvgtApq6NaXNHw.jpg",
+        "poster_path": "/1x4fHaDdlpWT5P2UV4ClKguWbTE.jpg",
+        "alerts": []
+    },
+    "tv_show": {
+        "id": 56570,
+        "name": "Outlander",
+        "backdrop_path": "/qutOe29dCGmT2JUlLPCqlzaQIo.jpg",
+        "poster_path": "/70PRIpG1phOyphejeLwi0K8zdJo.jpg",
+        "episodes": []
+    }
+}
