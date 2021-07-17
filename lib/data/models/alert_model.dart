@@ -1,7 +1,6 @@
-import 'moment_model.dart';
-
 import '../../domain/entities/alert.dart';
 import '../../domain/enums/alert_type.dart';
+import 'moment_model.dart';
 
 class AlertModel extends Alert {
   AlertModel(

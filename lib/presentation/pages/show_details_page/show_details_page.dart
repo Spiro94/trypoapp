@@ -2,11 +2,11 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../data/models/alert_model.dart';
-import '../../data/models/movie_model.dart';
-import '../../data/models/tv_show_model.dart';
-import '../../domain/entities/episode.dart';
-import '../widgets/alert_widget.dart';
+import '../../../data/models/alert_model.dart';
+import '../../../data/models/movie_model.dart';
+import '../../../data/models/tv_show_model.dart';
+import '../../../domain/entities/episode.dart';
+import '../../widgets/alert_widget.dart';
 
 class ShowDetailsPage extends StatelessWidget {
   static String routeName = '/show_details';

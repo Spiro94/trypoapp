@@ -45,7 +45,7 @@ class ShowDataSourceImpl implements ShowDataSource {
     if (query.isNotEmpty) {
       List<MovieModel> temp = [];
       movies.forEach((movie) {
-        if (movie.name.contains(query)) {
+        if (movie.name.toLowerCase().contains(query.toLowerCase())) {
           temp.add(movie);
         }
       });
@@ -61,7 +61,7 @@ class ShowDataSourceImpl implements ShowDataSource {
     if (query.isNotEmpty) {
       List<TvShowModel> temp = [];
       tvShows.forEach((tvShow) {
-        if (tvShow.name.contains(query)) {
+        if (tvShow.name.toLowerCase().contains(query.toLowerCase())) {
           temp.add(tvShow);
         }
       });
