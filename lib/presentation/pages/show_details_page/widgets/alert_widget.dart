@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../widgets/text.dart';
 
 import '../../../../../../core/utils/alert_type_util.dart';

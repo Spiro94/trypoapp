@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/themes/font_theme.dart';
 import '../../../widgets/text.dart';
 

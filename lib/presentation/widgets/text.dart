@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../core/themes/font_theme.dart';
 
 class TextWidget extends StatelessWidget {
