@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'core/themes/app_theme.dart';
-import 'presentation/bloc/show_bloc/movies_bloc.dart';
-import 'presentation/bloc/show_bloc/tv_shows_bloc.dart';
-
-import 'presentation/pages/home_page/home_page.dart';
 
 import 'core/routes/routes.dart';
-
+import 'core/themes/app_theme.dart';
 import 'dependency_injection/dependency_injection.dart';
+import 'presentation/bloc/movie_bloc/movie_bloc.dart';
+import 'presentation/bloc/tv_show_bloc/tv_show_bloc.dart';
+import 'presentation/pages/home_page/home_page.dart';
 
 void main() async {
   await init();
@@ -20,13 +18,13 @@ class TrypoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<MoviesBloc>(
+        BlocProvider<MovieBloc>(
           create: (BuildContext context) =>
-              instance<MoviesBloc>()..add(GetSavedMoviesEvent()),
+              instance<MovieBloc>()..add(GetSavedMoviesEvent()),
         ),
-        BlocProvider<TvShowsBloc>(
+        BlocProvider<TvShowBloc>(
           create: (BuildContext context) =>
-              instance<TvShowsBloc>()..add(GetSavedTvShowsEvent()),
+              instance<TvShowBloc>()..add(GetSavedTvShowsEvent()),
         ),
       ],
       child: MaterialWidget(),

@@ -7,17 +7,17 @@ import '../domain/usecases/get_saved_movies.dart';
 import '../domain/usecases/get_saved_tv_shows.dart';
 import '../domain/usecases/search_saved_movies.dart';
 import '../domain/usecases/search_saved_tv_shows.dart';
-import '../presentation/bloc/show_bloc/movies_bloc.dart';
-import '../presentation/bloc/show_bloc/tv_shows_bloc.dart';
+import '../presentation/bloc/movie_bloc/movie_bloc.dart';
+import '../presentation/bloc/tv_show_bloc/tv_show_bloc.dart';
 
 final instance = GetIt.instance;
 
 Future<void> init() async {
-  instance.registerFactory(() => MoviesBloc(
+  instance.registerFactory(() => MovieBloc(
         getSavedMovies: instance(),
         searchSavedMovies: instance(),
       ));
-  instance.registerFactory(() => TvShowsBloc(
+  instance.registerFactory(() => TvShowBloc(
         getSavedTvShows: instance(),
         searchSavedTvShows: instance(),
       ));

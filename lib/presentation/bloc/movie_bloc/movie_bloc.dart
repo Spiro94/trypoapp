@@ -8,25 +8,24 @@ import 'package:meta/meta.dart';
 import '../../../../../core/error/failure.dart';
 import '../../../../../core/usecase/usecase.dart';
 import '../../../data/models/movie_model.dart';
-import '../../../data/models/tv_show_model.dart';
 import '../../../domain/usecases/get_saved_movies.dart';
 import '../../../domain/usecases/search_saved_movies.dart';
 
-part 'show_event.dart';
-part 'show_state.dart';
+part 'movie_event.dart';
+part 'movie_state.dart';
 
-class MoviesBloc extends Bloc<ShowEvent, ShowState> {
+class MovieBloc extends Bloc<MovieEvent, MovieState> {
   final GetSavedMovies getSavedMovies;
   final SearchSavedMovies searchSavedMovies;
 
-  MoviesBloc({
+  MovieBloc({
     required this.getSavedMovies,
     required this.searchSavedMovies,
   }) : super(MoviesFetched([]));
 
   @override
-  Stream<ShowState> mapEventToState(
-    ShowEvent event,
+  Stream<MovieState> mapEventToState(
+    MovieEvent event,
   ) async* {
     if (event is GetSavedMoviesEvent) {
       yield Loading();
@@ -40,7 +39,7 @@ class MoviesBloc extends Bloc<ShowEvent, ShowState> {
     }
   }
 
-  Stream<ShowState> _eitherSuccessOrErrorState(
+  Stream<MovieState> _eitherSuccessOrErrorState(
       Either<Failure, List<MovieModel>> result) async* {
     yield result.fold(
       (error) => Error('Error obtaining data'),

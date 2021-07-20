@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/show_bloc/movies_bloc.dart';
+import '../../bloc/movie_bloc/movie_bloc.dart';
 import '../../widgets/loader.dart';
 import '../../widgets/search_bar.dart';
 import '../show_details_page/show_details_page.dart';
@@ -34,13 +34,13 @@ class _ShowsPageState extends State<MoviesPage> {
     var orientation = MediaQuery.of(context).orientation;
     double viewportHeight = size.height;
 
-    bloc = BlocProvider.of<MoviesBloc>(context);
+    bloc = BlocProvider.of<MovieBloc>(context);
 
     int columns = orientation == Orientation.landscape ? 5 : 3;
     double width = size.width / columns;
 
     return SafeArea(
-      child: BlocBuilder<MoviesBloc, ShowState>(
+      child: BlocBuilder<MovieBloc, MovieState>(
         builder: (context, state) {
           return Column(
             children: [
