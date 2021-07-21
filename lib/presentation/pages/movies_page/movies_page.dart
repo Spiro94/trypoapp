@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trypoapp/presentation/widgets/error.dart';
 
 import '../../bloc/movie_bloc/movie_bloc.dart';
 import '../../widgets/loader.dart';
@@ -46,7 +47,7 @@ class _ShowsPageState extends State<MoviesPage> {
             children: [
               SearchBar(
                 viewportHeight: viewportHeight,
-                hintText: 'Search Movies',
+                hintText: 'Search movies',
                 controller: _controller,
                 onClosePressed: () {
                   _controller.clear();
@@ -61,11 +62,11 @@ class _ShowsPageState extends State<MoviesPage> {
                   child: Loader(),
                 ))
               else if (state is Error)
-                ErrorWidget('Error obtaining data')
+                ErrorLabelWidget(message: 'Error obtaining data')
               else if (state is MoviesFetched)
                 _buildGrid(state, columns, width)
               else
-                ErrorWidget('State not implemented')
+                ErrorLabelWidget(message: 'State not implemented')
             ],
           );
         },

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+
 import '../../../../core/themes/font_theme.dart';
 import '../../../widgets/text.dart';
+import '../../search_movies_page/search_movies_page.dart';
 
 class SpeedDialWidget extends StatelessWidget {
   const SpeedDialWidget({
@@ -22,8 +24,6 @@ class SpeedDialWidget extends StatelessWidget {
       curve: Curves.bounceIn,
       overlayColor: theme.primaryColor,
       overlayOpacity: 0.5,
-      onOpen: () => print('OPENING DIAL'),
-      onClose: () => print('DIAL CLOSED'),
       tooltip: 'Add alert',
       heroTag: 'speed-dial-hero-tag',
       backgroundColor: theme.accentColor,
@@ -38,7 +38,13 @@ class SpeedDialWidget extends StatelessWidget {
           labelStyle: FontTheme.font.copyWith(
             color: theme.primaryColor,
           ),
-          onTap: () => print('FIRST CHILD'),
+          onTap: () {
+            print('FIRST CHILD');
+            Navigator.of(context).pushNamed(
+              SearchMoviesPage.routeName,
+              arguments: true,
+            );
+          },
         ),
         SpeedDialChild(
           child: Icon(Icons.tv),
@@ -47,7 +53,13 @@ class SpeedDialWidget extends StatelessWidget {
           labelStyle: FontTheme.font.copyWith(
             color: theme.primaryColor,
           ),
-          onTap: () => print('SECOND CHILD'),
+          onTap: () {
+            print('SECOND CHILD');
+            Navigator.of(context).pushNamed(
+              SearchMoviesPage.routeName,
+              arguments: false,
+            );
+          },
         ),
       ],
     );

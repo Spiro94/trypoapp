@@ -9,4 +9,6 @@ abstract class ShowRepository {
   Future<Either<Failure, List<TvShowModel>>> getSavedTvShows();
   Future<Either<Failure, List<MovieModel>>> searchSavedMovies(String query);
   Future<Either<Failure, List<TvShowModel>>> searchSavedTvShows(String query);
+  Future<Either<Failure, List<MovieModel>>> searchMovies(String query);
+  Future<Either<Failure, List<TvShowModel>>> searchTvShows(String query);
 }

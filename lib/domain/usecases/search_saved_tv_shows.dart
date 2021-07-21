@@ -15,8 +15,3 @@ class SearchSavedTvShows
     return await repository.searchSavedTvShows(params.query);
   }
 }
-
-class Params {
-  final String query;
-  Params(this.query);
-}

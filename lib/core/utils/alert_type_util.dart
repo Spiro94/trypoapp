@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../domain/enums/alert_type.dart';
 
 Color getColorFromAlert(AlertType alertType) {

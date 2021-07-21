@@ -3,6 +3,9 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import '../../core/constants/secrets.dart';
+import '../../core/error/exceptions.dart';
 
 import '../models/movie_model.dart';
 import '../models/tv_show_model.dart';
@@ -12,9 +15,16 @@ abstract class ShowDataSource {
   Future<List<TvShowModel>> getSavedTvShows();
   Future<List<MovieModel>> searchSavedMovies(String query);
   Future<List<TvShowModel>> searchSavedTvShows(String query);
+  Future<List<MovieModel>> searchMovies(String query);
+  Future<List<TvShowModel>> searchTvShows(String query);
 }
 
 class ShowDataSourceImpl implements ShowDataSource {
+  final http.Client client;
+  final String url = 'https://api.themoviedb.org/3/';
+
+  ShowDataSourceImpl(this.client);
+
   @override
   Future<List<MovieModel>> getSavedMovies() async {
     List<MovieModel> movies = [];
@@ -29,14 +39,14 @@ class ShowDataSourceImpl implements ShowDataSource {
 
   @override
   Future<List<TvShowModel>> getSavedTvShows() async {
-    List<TvShowModel> movies = [];
+    List<TvShowModel> tvShows = [];
     // await Future<void>.delayed(Duration(seconds: 2));
     var jsonText = await rootBundle.loadString('assets/json/tv_shows.json');
     var map = await json.decode(jsonText);
     for (var movie in map['results']) {
-      movies.add(TvShowModel.fromJson(movie));
+      tvShows.add(TvShowModel.fromJson(movie));
     }
-    return movies;
+    return tvShows;
   }
 
   @override
@@ -68,5 +78,32 @@ class ShowDataSourceImpl implements ShowDataSource {
       tvShows = temp;
     }
     return tvShows;
+  }
+
+  @override
+  Future<List<MovieModel>> searchMovies(String query) async {
+    List<MovieModel> movies = [];
+    try {
+      var response = await http.get(Uri.parse(url +
+          'search/movie?api_key=${MOVIE_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false'));
+      if (response.statusCode == 200) {
+        var jsonMap = json.decode(response.body);
+        for (var movie in jsonMap['results']) {
+          movies.add(MovieModel.fromJson(movie));
+        }
+      } else {
+        throw ServerException();
+      }
+    } on Exception {
+      throw ServerException();
+    }
+
+    return movies;
+  }
+
+  @override
+  Future<List<TvShowModel>> searchTvShows(String query) {
+    // TODO: implement searchTvShows
+    throw UnimplementedError();
   }
 }

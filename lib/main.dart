@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'presentation/bloc/search_movie/search_movie_bloc.dart';
 
-import 'core/routes/routes.dart';
+import 'core/routes/router.dart';
 import 'core/themes/app_theme.dart';
 import 'dependency_injection/dependency_injection.dart';
 import 'presentation/bloc/movie_bloc/movie_bloc.dart';
@@ -26,6 +27,9 @@ class TrypoApp extends StatelessWidget {
           create: (BuildContext context) =>
               instance<TvShowBloc>()..add(GetSavedTvShowsEvent()),
         ),
+        BlocProvider<SearchMovieBloc>(
+          create: (BuildContext context) => instance<SearchMovieBloc>(),
+        ),
       ],
       child: MaterialWidget(),
     );
@@ -40,11 +44,12 @@ class MaterialWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: getRoutes(),
+      // routes: getRoutes(),
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
       title: 'Trypoapp',
       initialRoute: HomePage.routeName,
+      onGenerateRoute: TypoAppRouter().generateRoute,
     );
   }
 }

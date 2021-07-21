@@ -5,13 +5,13 @@ import '../../../../core/usecase/usecase.dart';
 import '../../data/models/movie_model.dart';
 import '../repositories/show_repository.dart';
 
-class SearchSavedMovies
+class SearchMovies
     implements UseCase<Future<Either<Failure, List<MovieModel>>>, Params> {
   final ShowRepository repository;
 
-  SearchSavedMovies(this.repository);
+  SearchMovies(this.repository);
   @override
   call(Params params) async {
-    return await repository.searchSavedMovies(params.query);
+    return await repository.searchMovies(params.query);
   }
 }

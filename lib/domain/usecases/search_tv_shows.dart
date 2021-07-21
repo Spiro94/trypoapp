@@ -1,17 +1,17 @@
 import 'package:dartz/dartz.dart';
+import '../../data/models/tv_show_model.dart';
 
 import '../../../../core/error/failure.dart';
 import '../../../../core/usecase/usecase.dart';
-import '../../data/models/movie_model.dart';
 import '../repositories/show_repository.dart';
 
-class SearchSavedMovies
-    implements UseCase<Future<Either<Failure, List<MovieModel>>>, Params> {
+class SearchTvShows
+    implements UseCase<Future<Either<Failure, List<TvShowModel>>>, Params> {
   final ShowRepository repository;
 
-  SearchSavedMovies(this.repository);
+  SearchTvShows(this.repository);
   @override
   call(Params params) async {
-    return await repository.searchSavedMovies(params.query);
+    return await repository.searchTvShows(params.query);
   }
 }

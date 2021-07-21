@@ -22,7 +22,9 @@ class MovieModel extends Movie {
       json['title'],
       json['poster_path'] ?? '',
       json['backdrop_path'] ?? '',
-      (json['alerts'] as List).map((e) => AlertModel.fromJson(e)).toList(),
+      (json['alerts'] as List? ?? [])
+          .map((e) => AlertModel.fromJson(e))
+          .toList(),
     );
   }
 }

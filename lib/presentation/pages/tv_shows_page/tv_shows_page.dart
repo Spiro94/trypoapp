@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trypoapp/presentation/bloc/tv_show_bloc/tv_show_bloc.dart';
+import 'package:trypoapp/presentation/widgets/error.dart';
+import '../../bloc/tv_show_bloc/tv_show_bloc.dart';
 
 import '../../widgets/loader.dart';
 import '../../widgets/search_bar.dart';
@@ -46,7 +47,7 @@ class _ShowsPageState extends State<TvShowsPage> {
             children: [
               SearchBar(
                 viewportHeight: viewportHeight,
-                hintText: 'Search TV Shows',
+                hintText: 'Search TV shows',
                 controller: _controller,
                 onClosePressed: () {
                   _controller.clear();
@@ -61,11 +62,11 @@ class _ShowsPageState extends State<TvShowsPage> {
                   child: Loader(),
                 ))
               else if (state is Error)
-                ErrorWidget('Error obtaining data')
+                ErrorLabelWidget(message: 'Error obtaining data')
               else if (state is TvShowsFetched)
                 _buildGrid(state, columns, width)
               else
-                ErrorWidget('State not implemented')
+                ErrorLabelWidget(message: 'State not implemented')
             ],
           );
         },

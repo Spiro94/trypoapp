@@ -9,7 +9,7 @@ import '../../widgets/text.dart';
 import 'widgets/alert_widget.dart';
 
 class ShowDetailsPage extends StatelessWidget {
-  static String routeName = '/show_details';
+  static const String routeName = '/show_details';
   final MovieModel? movie;
   final TvShowModel? tvShow;
   const ShowDetailsPage({Key? key, this.movie, this.tvShow}) : super(key: key);
@@ -18,11 +18,12 @@ class ShowDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Scaffold(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: theme.primaryColor,
         appBar: AppBar(
           brightness: Brightness.dark,
           title: TextWidget(
             movie == null ? 'TV Show details' : 'Movie details',
+            color: theme.accentColor,
           ),
         ),
         body: ListView(physics: BouncingScrollPhysics(), children: [

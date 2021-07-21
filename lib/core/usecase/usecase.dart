@@ -3,3 +3,8 @@ abstract class UseCase<Type, Params> {
 }
 
 class NoParams {}
+
+class Params {
+  final String query;
+  const Params(this.query);
+}

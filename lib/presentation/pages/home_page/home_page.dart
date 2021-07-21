@@ -6,7 +6,7 @@ import 'widgets/bottom_navigation.dart';
 import 'widgets/speed_dial.dart';
 
 class HomePage extends StatefulWidget {
-  static String routeName = '/';
+  static const String routeName = '/';
   const HomePage({Key? key}) : super(key: key);
 
   @override
