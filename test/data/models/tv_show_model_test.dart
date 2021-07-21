@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:trypoapp/data/models/tv_show_model.dart';
-import 'package:trypoapp/domain/entities/show.dart';
-import 'package:trypoapp/domain/entities/tv_show.dart';
+import 'package:trypoapp/core/domain/entities/show.dart';
+import 'package:trypoapp/core/domain/entities/tv_show.dart';
+import 'package:trypoapp/features/search/data/models/tv_show_model.dart';
 
 import '../../fixtures/fixture_reader.dart';
 

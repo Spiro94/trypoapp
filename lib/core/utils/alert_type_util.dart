@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../domain/enums/alert_type.dart';
+import 'package:trypoapp/core/domain/enums/alert_type.dart';
 
 Color getColorFromAlert(AlertType alertType) {
   Color color = Colors.red;

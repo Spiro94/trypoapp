@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../data/models/movie_model.dart';
-import '../../data/models/tv_show_model.dart';
-import '../../presentation/pages/add_alert/add_alert.dart';
-
-import '../../presentation/pages/home_page/home_page.dart';
-import '../../presentation/pages/search_movies_page/search_movies_page.dart';
-import '../../presentation/pages/show_details_page/show_details_page.dart';
+import 'package:trypoapp/core/domain/entities/movie.dart';
+import 'package:trypoapp/core/domain/entities/tv_show.dart';
+import 'package:trypoapp/features/search/presentation/pages/add_alert/add_alert.dart';
+import 'package:trypoapp/features/search/presentation/pages/home_page/home_page.dart';
+import 'package:trypoapp/features/search/presentation/pages/search_movies_page/search_movies_page.dart';
+import 'package:trypoapp/features/search/presentation/pages/show_details_page/show_details_page.dart';
 
 class TypoAppRouter {
   Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -23,7 +22,7 @@ class TypoAppRouter {
       case AddAlert.routeName:
         var show = settings.arguments;
 
-        if (show is MovieModel) {
+        if (show is Movie) {
           return MaterialPageRoute(
               builder: (_) => AddAlert(
                     movie: show,
@@ -31,7 +30,7 @@ class TypoAppRouter {
         } else {
           return MaterialPageRoute(
               builder: (_) => AddAlert(
-                    tvShow: show as TvShowModel,
+                    tvShow: show as TvShow,
                   ));
         }
 
