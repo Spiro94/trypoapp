@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'presentation/bloc/search_movie/search_movie_bloc.dart';
 
 import 'core/routes/router.dart';
 import 'core/themes/app_theme.dart';
 import 'dependency_injection/dependency_injection.dart';
 import 'presentation/bloc/movie_bloc/movie_bloc.dart';
+import 'presentation/bloc/search_movie/search_movie_bloc.dart';
 import 'presentation/bloc/tv_show_bloc/tv_show_bloc.dart';
 import 'presentation/pages/home_page/home_page.dart';
 

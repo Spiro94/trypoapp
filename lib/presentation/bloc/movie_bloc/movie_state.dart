@@ -9,7 +9,7 @@ class Loading extends MovieState {
 }
 
 class MoviesFetched extends MovieState {
-  final List<MovieModel> movies;
+  final List<Movie> movies;
 
   MoviesFetched(
     this.movies,

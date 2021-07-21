@@ -7,7 +7,7 @@ import 'package:meta/meta.dart';
 
 import '../../../../../core/error/failure.dart';
 import '../../../../../core/usecase/usecase.dart';
-import '../../../data/models/movie_model.dart';
+import '../../../domain/entities/movie.dart';
 import '../../../domain/usecases/get_saved_movies.dart';
 import '../../../domain/usecases/search_saved_movies.dart';
 
@@ -40,7 +40,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   }
 
   Stream<MovieState> _eitherSuccessOrErrorState(
-      Either<Failure, List<MovieModel>> result) async* {
+      Either<Failure, List<Movie>> result) async* {
     yield result.fold(
       (error) => Error('Error obtaining data'),
       (movies) => MoviesFetched(movies),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../widgets/text.dart';
 
 import '../../../../../../core/utils/alert_type_util.dart';
 import '../../../../data/models/alert_model.dart';
 import '../../../../data/models/moment_model.dart';
+import '../../../widgets/text.dart';
 
 class AlertWidget extends StatelessWidget {
   final AlertModel alert;

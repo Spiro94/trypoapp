@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../data/models/movie_model.dart';
 import '../../../data/models/tv_show_model.dart';
-
 import '../../widgets/text.dart';
 
 class AddAlert extends StatefulWidget {

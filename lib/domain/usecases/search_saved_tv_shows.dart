@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
+import '../entities/tv_show.dart';
 
 import '../../../../core/error/failure.dart';
 import '../../../../core/usecase/usecase.dart';
-import '../../data/models/tv_show_model.dart';
 import '../repositories/show_repository.dart';
 
 class SearchSavedTvShows
-    implements UseCase<Future<Either<Failure, List<TvShowModel>>>, Params> {
+    implements UseCase<Future<Either<Failure, List<TvShow>>>, Params> {
   final ShowRepository repository;
 
   SearchSavedTvShows(this.repository);

@@ -4,10 +4,10 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import '../../../domain/entities/tv_show.dart';
 
 import '../../../core/error/failure.dart';
 import '../../../core/usecase/usecase.dart';
-import '../../../data/models/tv_show_model.dart';
 import '../../../domain/usecases/get_saved_tv_shows.dart';
 import '../../../domain/usecases/search_saved_tv_shows.dart';
 
@@ -40,7 +40,7 @@ class TvShowBloc extends Bloc<TvShowEvent, TvShowState> {
   }
 
   Stream<TvShowState> _eitherSuccessOrErrorState(
-      Either<Failure, List<TvShowModel>> result) async* {
+      Either<Failure, List<TvShow>> result) async* {
     yield result.fold(
       (error) => Error('Error obtaining data'),
       (tvShows) => TvShowsFetched(tvShows),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trypoapp/presentation/widgets/error.dart';
+import '../../widgets/error.dart';
 import '../add_alert/add_alert.dart';
 
 import '../../bloc/search_movie/search_movie_bloc.dart';

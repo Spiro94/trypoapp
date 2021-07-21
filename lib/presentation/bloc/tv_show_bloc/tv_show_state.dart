@@ -9,7 +9,7 @@ class Loading extends TvShowState {
 }
 
 class TvShowsFetched extends TvShowState {
-  final List<TvShowModel> tvShows;
+  final List<TvShow> tvShows;
 
   TvShowsFetched(
     this.tvShows,

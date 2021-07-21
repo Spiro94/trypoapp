@@ -15,7 +15,7 @@ class Loading extends SearchMovieState {
 }
 
 class MoviesFetched extends SearchMovieState {
-  final List<MovieModel> movies;
+  final List<Movie> movies;
 
   const MoviesFetched(
     this.movies,
@@ -26,7 +26,7 @@ class MoviesFetched extends SearchMovieState {
 }
 
 class TvShowsFetched extends SearchMovieState {
-  final List<TvShowModel> tvShows;
+  final List<TvShow> tvShows;
 
   const TvShowsFetched(
     this.tvShows,

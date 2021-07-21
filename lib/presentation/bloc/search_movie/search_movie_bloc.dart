@@ -3,12 +3,13 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import '../../../domain/usecases/search_movies.dart';
-import '../../../domain/usecases/search_tv_shows.dart';
+
 import '../../../core/error/failure.dart';
 import '../../../core/usecase/usecase.dart';
-import '../../../data/models/movie_model.dart';
-import '../../../data/models/tv_show_model.dart';
+import '../../../domain/entities/movie.dart';
+import '../../../domain/entities/tv_show.dart';
+import '../../../domain/usecases/search_movies.dart';
+import '../../../domain/usecases/search_tv_shows.dart';
 
 part 'search_movie_event.dart';
 part 'search_movie_state.dart';
@@ -47,7 +48,7 @@ class SearchMovieBloc extends Bloc<SearchMovieEvent, SearchMovieState> {
   }
 
   Stream<SearchMovieState> _eitherSuccessOrErrorStateMovie(
-      Either<Failure, List<MovieModel>> result) async* {
+      Either<Failure, List<Movie>> result) async* {
     yield result.fold(
       (error) => Error('Error obtaining data'),
       (movies) => MoviesFetched(movies),
@@ -55,7 +56,7 @@ class SearchMovieBloc extends Bloc<SearchMovieEvent, SearchMovieState> {
   }
 
   Stream<SearchMovieState> _eitherSuccessOrErrorStateTvShow(
-      Either<Failure, List<TvShowModel>> result) async* {
+      Either<Failure, List<TvShow>> result) async* {
     yield result.fold(
       (error) => Error('Error obtaining data'),
       (tvShows) => TvShowsFetched(tvShows),

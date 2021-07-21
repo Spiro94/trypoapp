@@ -4,9 +4,9 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+
 import '../../core/constants/secrets.dart';
 import '../../core/error/exceptions.dart';
-
 import '../models/movie_model.dart';
 import '../models/tv_show_model.dart';
 

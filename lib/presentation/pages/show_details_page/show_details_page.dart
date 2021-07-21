@@ -2,16 +2,16 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/models/alert_model.dart';
-import '../../../data/models/movie_model.dart';
-import '../../../data/models/tv_show_model.dart';
 import '../../../domain/entities/episode.dart';
+import '../../../domain/entities/movie.dart';
+import '../../../domain/entities/tv_show.dart';
 import '../../widgets/text.dart';
 import 'widgets/alert_widget.dart';
 
 class ShowDetailsPage extends StatelessWidget {
   static const String routeName = '/show_details';
-  final MovieModel? movie;
-  final TvShowModel? tvShow;
+  final Movie? movie;
+  final TvShow? tvShow;
   const ShowDetailsPage({Key? key, this.movie, this.tvShow}) : super(key: key);
 
   @override
