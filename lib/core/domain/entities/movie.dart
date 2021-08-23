@@ -4,8 +4,11 @@ import 'show.dart';
 class Movie extends Show {
   final List<Alert> alerts;
 
-  Movie(int id, String name, String posterPath, String backdropPath,
-      List<Alert> alerts)
-      : this.alerts = alerts,
-        super(id, name, posterPath, backdropPath);
+  const Movie(
+    int id,
+    String name,
+    String posterPath,
+    String backdropPath,
+    this.alerts,
+  ) : super(id, name, posterPath, backdropPath);
 }

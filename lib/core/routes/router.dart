@@ -10,9 +10,9 @@ class TypoAppRouter {
   Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case HomePage.routeName:
-        return MaterialPageRoute(builder: (_) => HomePage());
+        return MaterialPageRoute(builder: (_) => const HomePage());
       case ShowDetailsPage.routeName:
-        return MaterialPageRoute(builder: (_) => ShowDetailsPage());
+        return MaterialPageRoute(builder: (_) => const ShowDetailsPage());
       case SearchMoviesPage.routeName:
         var isMovie = settings.arguments as bool;
         return MaterialPageRoute(

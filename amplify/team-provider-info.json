@@ -10,6 +10,11 @@
       "StackName": "amplify-trypoapp-dev-155752",
       "StackId": "arn:aws:cloudformation:us-east-1:604100206567:stack/amplify-trypoapp-dev-155752/52ddbf40-ea66-11eb-b873-0e2a8c6e8545",
       "AmplifyAppId": "d40qc0w2wpb18"
+    },
+    "categories": {
+      "auth": {
+        "trypoapp874f09a6": {}
+      }
     }
   }
 }

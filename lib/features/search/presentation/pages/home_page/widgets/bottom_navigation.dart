@@ -17,7 +17,7 @@ class BottomNavigationWidget extends StatelessWidget {
       currentIndex: currentIndex,
       selectedLabelStyle: FontTheme.font,
       unselectedLabelStyle: FontTheme.font,
-      items: [
+      items: const [
         BottomNavigationBarItem(
           icon: Icon(
             Icons.movie,

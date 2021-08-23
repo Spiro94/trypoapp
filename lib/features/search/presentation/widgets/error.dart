@@ -21,7 +21,7 @@ class ErrorLabelWidget extends StatelessWidget {
             Icons.error,
             color: theme.accentColor,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           TextWidget(

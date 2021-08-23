@@ -17,7 +17,7 @@ class MoviesPage extends StatefulWidget {
 }
 
 class _ShowsPageState extends State<MoviesPage> {
-  late TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   late Bloc bloc;
 
@@ -53,20 +53,20 @@ class _ShowsPageState extends State<MoviesPage> {
                   _controller.clear();
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               if (state is Loading)
-                Expanded(
+                const Expanded(
                     child: Center(
                   child: Loader(),
                 ))
               else if (state is Error)
-                ErrorLabelWidget(message: 'Error obtaining data')
+                const ErrorLabelWidget(message: 'Error obtaining data')
               else if (state is MoviesFetched)
                 _buildGrid(state, columns, width)
               else
-                ErrorLabelWidget(message: 'State not implemented')
+                const ErrorLabelWidget(message: 'State not implemented')
             ],
           );
         },
@@ -108,23 +108,21 @@ class _ShowsPageState extends State<MoviesPage> {
                         ),
                       ));
                 },
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Hero(
-                        tag: state.movies[index].id,
-                        child: FadeInImage(
-                          height: width * 1.5,
-                          placeholder: AssetImage(
-                            'assets/images/placeholder.png',
-                          ),
-                          image: NetworkImage(
-                              'https://image.tmdb.org/t/p/w500${state.movies[index].posterPath}'),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Hero(
+                      tag: state.movies[index].id,
+                      child: FadeInImage(
+                        height: width * 1.5,
+                        placeholder: const AssetImage(
+                          'assets/images/placeholder.png',
                         ),
+                        image: NetworkImage(
+                            'https://image.tmdb.org/t/p/w500${state.movies[index].posterPath}'),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               );
             },

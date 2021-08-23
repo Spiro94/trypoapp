@@ -3,9 +3,9 @@ import 'package:trypoapp/core/domain/enums/alert_type.dart';
 
 Color getColorFromAlert(AlertType alertType) {
   Color color = Colors.red;
-  if (alertType == AlertType.Low) {
+  if (alertType == AlertType.low) {
     color = Colors.yellow;
-  } else if (alertType == AlertType.Moderate) {
+  } else if (alertType == AlertType.moderate) {
     color = Colors.orange;
   }
 

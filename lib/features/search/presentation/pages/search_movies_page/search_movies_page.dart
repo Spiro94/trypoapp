@@ -21,17 +21,18 @@ class SearchMoviesPage extends StatefulWidget {
 }
 
 class _ShowsPageState extends State<SearchMoviesPage> {
-  late TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   String previousText = '';
   late Bloc bloc;
 
   @override
   void initState() {
     _controller.addListener(() {
-      if (previousText != _controller.text)
+      if (previousText != _controller.text) {
         widget.isMovie
             ? bloc.add(MovieSearchEvent(_controller.text))
             : bloc.add(TvShowSearchEvent(_controller.text));
+      }
     });
     super.initState();
   }
@@ -72,7 +73,7 @@ class _ShowsPageState extends State<SearchMoviesPage> {
                     previousText = text;
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 if (state is InitialState)
@@ -82,8 +83,8 @@ class _ShowsPageState extends State<SearchMoviesPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Icon(Icons.lightbulb),
-                        SizedBox(
+                        const Icon(Icons.lightbulb),
+                        const SizedBox(
                           height: 10,
                         ),
                         TextWidget(
@@ -95,18 +96,18 @@ class _ShowsPageState extends State<SearchMoviesPage> {
                     ),
                   ))
                 else if (state is Loading)
-                  Expanded(
+                  const Expanded(
                       child: Center(
                     child: Loader(),
                   ))
                 else if (state is Error)
-                  ErrorLabelWidget(message: 'Error obtaining data')
+                  const ErrorLabelWidget(message: 'Error obtaining data')
                 else if (state is MoviesFetched)
                   _buildGridMovie(state, columns, width)
                 else if (state is TvShowsFetched)
                   _buildGridTvShow(state, columns, width)
                 else
-                  ErrorLabelWidget(message: 'State not implemented')
+                  const ErrorLabelWidget(message: 'State not implemented')
               ],
             );
           },
@@ -137,29 +138,27 @@ class _ShowsPageState extends State<SearchMoviesPage> {
               Navigator.pushNamed(context, AddAlert.routeName,
                   arguments: state.movies[index]);
             },
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Hero(
-                    tag: 'search_${state.movies[index].id}',
-                    child: state.movies[index].posterPath.isEmpty
-                        ? Image(
-                            image: AssetImage(
-                              'assets/images/placeholder.png',
-                            ),
-                          )
-                        : FadeInImage(
-                            height: width * 1.5,
-                            placeholder: AssetImage(
-                              'assets/images/placeholder.png',
-                            ),
-                            image: NetworkImage(
-                                'https://image.tmdb.org/t/p/w500${state.movies[index].posterPath}'),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Hero(
+                  tag: 'search_${state.movies[index].id}',
+                  child: state.movies[index].posterPath.isEmpty
+                      ? const Image(
+                          image: AssetImage(
+                            'assets/images/placeholder.png',
                           ),
-                  ),
-                ],
-              ),
+                        )
+                      : FadeInImage(
+                          height: width * 1.5,
+                          placeholder: const AssetImage(
+                            'assets/images/placeholder.png',
+                          ),
+                          image: NetworkImage(
+                              'https://image.tmdb.org/t/p/w500${state.movies[index].posterPath}'),
+                        ),
+                ),
+              ],
             ),
           );
         },
@@ -186,29 +185,29 @@ class _ShowsPageState extends State<SearchMoviesPage> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         ListTile(
-                          leading: new Icon(Icons.photo),
-                          title: new Text('Photo'),
+                          leading: const Icon(Icons.photo),
+                          title: const Text('Photo'),
                           onTap: () {
                             Navigator.pop(context);
                           },
                         ),
                         ListTile(
-                          leading: new Icon(Icons.music_note),
-                          title: new Text('Music'),
+                          leading: const Icon(Icons.music_note),
+                          title: const Text('Music'),
                           onTap: () {
                             Navigator.pop(context);
                           },
                         ),
                         ListTile(
-                          leading: new Icon(Icons.videocam),
-                          title: new Text('Video'),
+                          leading: const Icon(Icons.videocam),
+                          title: const Text('Video'),
                           onTap: () {
                             Navigator.pop(context);
                           },
                         ),
                         ListTile(
-                          leading: new Icon(Icons.share),
-                          title: new Text('Share'),
+                          leading: const Icon(Icons.share),
+                          title: const Text('Share'),
                           onTap: () {
                             Navigator.pop(context);
                           },
@@ -219,23 +218,21 @@ class _ShowsPageState extends State<SearchMoviesPage> {
               // Navigator.pushNamed(context, AddAlert.routeName,
               //     arguments: state.tvShows[index]);
             },
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Hero(
-                    tag: 'search_${state.tvShows[index].id}',
-                    child: FadeInImage(
-                      height: width * 1.5,
-                      placeholder: AssetImage(
-                        'assets/images/placeholder.png',
-                      ),
-                      image: NetworkImage(
-                          'https://image.tmdb.org/t/p/w500${state.tvShows[index].posterPath}'),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Hero(
+                  tag: 'search_${state.tvShows[index].id}',
+                  child: FadeInImage(
+                    height: width * 1.5,
+                    placeholder: const AssetImage(
+                      'assets/images/placeholder.png',
                     ),
+                    image: NetworkImage(
+                        'https://image.tmdb.org/t/p/w500${state.tvShows[index].posterPath}'),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         },

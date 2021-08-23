@@ -14,7 +14,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Widget> _bodies = [MoviesPage(), TvShowsPage()];
+  final List<Widget> _bodies = [
+    const MoviesPage(),
+    const TvShowsPage(),
+  ];
   int _active = 0;
 
   @override
@@ -27,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: _bodies[_active],
-      floatingActionButton: SpeedDialWidget(),
+      floatingActionButton: const SpeedDialWidget(),
       bottomNavigationBar: BottomNavigationWidget(
         currentIndex: _active,
         onTap: (index) {

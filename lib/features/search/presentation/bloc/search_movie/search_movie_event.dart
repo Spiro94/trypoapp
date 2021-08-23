@@ -10,7 +10,7 @@ abstract class SearchMovieEvent extends Equatable {
 class MovieSearchEvent extends SearchMovieEvent {
   final String query;
 
-  MovieSearchEvent(
+  const MovieSearchEvent(
     this.query,
   );
 }
@@ -18,7 +18,7 @@ class MovieSearchEvent extends SearchMovieEvent {
 class TvShowSearchEvent extends SearchMovieEvent {
   final String query;
 
-  TvShowSearchEvent(
+  const TvShowSearchEvent(
     this.query,
   );
 }

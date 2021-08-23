@@ -2,7 +2,7 @@ import '../../../../core/domain/entities/movie.dart';
 import 'alert_model.dart';
 
 class MovieModel extends Movie {
-  MovieModel(
+  const MovieModel(
     int id,
     String name,
     String posterPath,

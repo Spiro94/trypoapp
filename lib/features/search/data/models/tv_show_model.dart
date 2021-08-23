@@ -3,7 +3,7 @@ import '../../../../core/domain/entities/tv_show.dart';
 import 'episode_model.dart';
 
 class TvShowModel extends TvShow {
-  TvShowModel(
+  const TvShowModel(
     int id,
     String name,
     String posterPath,

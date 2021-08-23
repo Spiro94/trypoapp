@@ -8,7 +8,7 @@ import 'package:trypoapp/features/search/data/models/tv_show_model.dart';
 import '../../fixtures/fixture_reader.dart';
 
 void main() {
-  final TvShowModel tvShowModel = TvShowModel(
+  const TvShowModel tvShowModel = TvShowModel(
     56570,
     'Outlander',
     '/70PRIpG1phOyphejeLwi0K8zdJo.jpg',

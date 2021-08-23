@@ -6,7 +6,7 @@ class Show extends Equatable {
   final String posterPath;
   final String backdropPath;
 
-  Show(
+  const Show(
     this.id,
     this.name,
     this.posterPath,

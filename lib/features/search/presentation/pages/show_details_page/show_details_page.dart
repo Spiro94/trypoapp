@@ -25,16 +25,17 @@ class ShowDetailsPage extends StatelessWidget {
             color: theme.accentColor,
           ),
         ),
-        body: ListView(physics: BouncingScrollPhysics(), children: [
+        body: ListView(physics: const BouncingScrollPhysics(), children: [
           Hero(
             tag: movie == null ? tvShow!.id : movie!.id,
             child: FadeInImage(
-              placeholder: AssetImage('assets/images/placeholder_back.jpg'),
+              placeholder:
+                  const AssetImage('assets/images/placeholder_back.jpg'),
               image: NetworkImage(
                   'https://image.tmdb.org/t/p/w500${movie == null ? tvShow!.backdropPath : movie!.backdropPath}'),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           TextWidget(
@@ -43,7 +44,7 @@ class ShowDetailsPage extends StatelessWidget {
             fontSize: 30,
             textAlign: TextAlign.center,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           TextWidget(
@@ -51,7 +52,7 @@ class ShowDetailsPage extends StatelessWidget {
             textAlign: TextAlign.center,
             color: theme.accentColor,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           movie == null
@@ -79,7 +80,7 @@ class ShowDetailsPage extends StatelessWidget {
             color: theme.accentColor,
             fontWeight: FontWeight.bold,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Column(
@@ -98,7 +99,7 @@ class ShowDetailsPage extends StatelessWidget {
                               )
                               .toList(),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                       ],

@@ -54,11 +54,13 @@ class ShowDataSourceImpl implements ShowDataSource {
     List<MovieModel> movies = await getSavedMovies();
     if (query.isNotEmpty) {
       List<MovieModel> temp = [];
-      movies.forEach((movie) {
+
+      for (var movie in movies) {
         if (movie.name.toLowerCase().contains(query.toLowerCase())) {
           temp.add(movie);
         }
-      });
+      }
+
       movies = temp;
     }
 
@@ -70,11 +72,13 @@ class ShowDataSourceImpl implements ShowDataSource {
     List<TvShowModel> tvShows = await getSavedTvShows();
     if (query.isNotEmpty) {
       List<TvShowModel> temp = [];
-      tvShows.forEach((tvShow) {
+
+      for (var tvShow in tvShows) {
         if (tvShow.name.toLowerCase().contains(query.toLowerCase())) {
           temp.add(tvShow);
         }
-      });
+      }
+
       tvShows = temp;
     }
     return tvShows;
@@ -85,25 +89,42 @@ class ShowDataSourceImpl implements ShowDataSource {
     List<MovieModel> movies = [];
     try {
       var response = await http.get(Uri.parse(url +
-          'search/movie?api_key=${MOVIE_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false'));
+          'search/movie?api_key=$movieApiKey&language=en-US&query=$query&page=1&include_adult=false'));
       if (response.statusCode == 200) {
         var jsonMap = json.decode(response.body);
         for (var movie in jsonMap['results']) {
           movies.add(MovieModel.fromJson(movie));
         }
       } else {
-        throw ServerException();
+        throw ServerException(
+            'Respuesta errónea por parte del servidor - ${response.statusCode}');
       }
-    } on Exception {
-      throw ServerException();
+    } on Exception catch (e) {
+      throw GenericException(e.toString());
     }
 
     return movies;
   }
 
   @override
-  Future<List<TvShowModel>> searchTvShows(String query) {
-    // TODO: implement searchTvShows
-    throw UnimplementedError();
+  Future<List<TvShowModel>> searchTvShows(String query) async {
+    List<TvShowModel> tvShows = [];
+    try {
+      var response = await http.get(Uri.parse(url +
+          'search/tv?api_key=$movieApiKey&language=en-US&query=$query&page=1&include_adult=false'));
+      if (response.statusCode == 200) {
+        var jsonMap = json.decode(response.body);
+        for (var tvShow in jsonMap['results']) {
+          tvShows.add(TvShowModel.fromJson(tvShow));
+        }
+      } else {
+        throw ServerException(
+            'Respuesta errónea por parte del servidor - ${response.statusCode}');
+      }
+    } on Exception catch (e) {
+      throw GenericException(e.toString());
+    }
+
+    return tvShows;
   }
 }

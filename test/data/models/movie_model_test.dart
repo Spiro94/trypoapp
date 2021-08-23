@@ -8,7 +8,7 @@ import 'package:trypoapp/features/search/data/models/movie_model.dart';
 import '../../fixtures/fixture_reader.dart';
 
 void main() {
-  final MovieModel movieModel = MovieModel(
+  const MovieModel movieModel = MovieModel(
     158015,
     'The Purge',
     '/1x4fHaDdlpWT5P2UV4ClKguWbTE.jpg',

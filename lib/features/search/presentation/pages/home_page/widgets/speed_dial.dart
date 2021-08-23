@@ -14,7 +14,7 @@ class SpeedDialWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return SpeedDial(
-      label: TextWidget(
+      label: const TextWidget(
         'Add alert',
         fontWeight: FontWeight.w500,
       ),
@@ -29,17 +29,17 @@ class SpeedDialWidget extends StatelessWidget {
       backgroundColor: theme.accentColor,
       foregroundColor: theme.primaryColor,
       elevation: 8.0,
-      shape: CircleBorder(),
+      shape: const CircleBorder(),
       children: [
         SpeedDialChild(
-          child: Icon(Icons.movie),
+          child: const Icon(Icons.movie),
           backgroundColor: theme.accentColor,
           label: 'Movies',
           labelStyle: FontTheme.font.copyWith(
             color: theme.primaryColor,
           ),
           onTap: () {
-            print('FIRST CHILD');
+            // print('FIRST CHILD');
             Navigator.of(context).pushNamed(
               SearchMoviesPage.routeName,
               arguments: true,
@@ -47,14 +47,14 @@ class SpeedDialWidget extends StatelessWidget {
           },
         ),
         SpeedDialChild(
-          child: Icon(Icons.tv),
+          child: const Icon(Icons.tv),
           backgroundColor: theme.accentColor,
           label: 'TV Series',
           labelStyle: FontTheme.font.copyWith(
             color: theme.primaryColor,
           ),
           onTap: () {
-            print('SECOND CHILD');
+            // print('SECOND CHILD');
             Navigator.of(context).pushNamed(
               SearchMoviesPage.routeName,
               arguments: false,

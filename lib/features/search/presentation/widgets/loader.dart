@@ -14,7 +14,7 @@ class Loader extends StatelessWidget {
         CircularProgressIndicator(
           color: theme.accentColor,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         TextWidget(

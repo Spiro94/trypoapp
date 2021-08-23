@@ -21,7 +21,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   MovieBloc({
     required this.getSavedMovies,
     required this.searchSavedMovies,
-  }) : super(MoviesFetched([]));
+  }) : super(MoviesFetched(List.empty()));
 
   @override
   Stream<MovieState> mapEventToState(

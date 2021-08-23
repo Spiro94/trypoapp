@@ -3,14 +3,13 @@ import 'show.dart';
 class Search extends Show {
   final String type;
 
-  Search(
+  const Search(
     int id,
     String name,
     String posterPath,
     String backdropPath,
-    String type,
-  )   : this.type = type,
-        super(
+    this.type,
+  ) : super(
           id,
           name,
           posterPath,

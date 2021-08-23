@@ -1,6 +1,11 @@
 abstract class Failure {
-  List<Object> get props => [];
+  final String message;
+
+  Failure(this.message);
+  List<Object> get props => [message];
 }
 
 //General Failures
-class ServerFailure extends Failure {}
+class ServerFailure extends Failure {
+  ServerFailure(String message) : super(message);
+}

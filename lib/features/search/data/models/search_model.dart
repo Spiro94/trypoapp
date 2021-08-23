@@ -1,7 +1,7 @@
 import 'package:trypoapp/core/domain/entities/search.dart';
 
 class SearchModel extends Search {
-  SearchModel(
+  const SearchModel(
       int id, String name, String posterPath, String backdropPath, String type)
       : super(
           id,

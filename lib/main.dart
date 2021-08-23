@@ -1,5 +1,8 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trypoapp/amplifyconfiguration.dart';
 
 import 'core/routes/router.dart';
 import 'core/themes/app_theme.dart';
@@ -11,10 +14,23 @@ import 'features/search/presentation/pages/home_page/home_page.dart';
 
 void main() async {
   await init();
-  runApp(TrypoApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureAmplify();
+  runApp(const TrypoApp());
+}
+
+Future<void> configureAmplify() async {
+  Amplify.addPlugins([AmplifyAuthCognito()]);
+  try {
+    await Amplify.configure(amplifyconfig);
+  } catch (e) {
+    // print('Amplify error');
+  }
 }
 
 class TrypoApp extends StatelessWidget {
+  const TrypoApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -31,7 +47,7 @@ class TrypoApp extends StatelessWidget {
           create: (BuildContext context) => instance<SearchMovieBloc>(),
         ),
       ],
-      child: MaterialWidget(),
+      child: const MaterialWidget(),
     );
   }
 }

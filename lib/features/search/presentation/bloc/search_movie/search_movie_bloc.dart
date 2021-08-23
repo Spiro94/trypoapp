@@ -50,7 +50,7 @@ class SearchMovieBloc extends Bloc<SearchMovieEvent, SearchMovieState> {
   Stream<SearchMovieState> _eitherSuccessOrErrorStateMovie(
       Either<Failure, List<Movie>> result) async* {
     yield result.fold(
-      (error) => Error('Error obtaining data'),
+      (error) => Error(error.message),
       (movies) => MoviesFetched(movies),
     );
   }
@@ -58,7 +58,7 @@ class SearchMovieBloc extends Bloc<SearchMovieEvent, SearchMovieState> {
   Stream<SearchMovieState> _eitherSuccessOrErrorStateTvShow(
       Either<Failure, List<TvShow>> result) async* {
     yield result.fold(
-      (error) => Error('Error obtaining data'),
+      (error) => Error(error.message),
       (tvShows) => TvShowsFetched(tvShows),
     );
   }

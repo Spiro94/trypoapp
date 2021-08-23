@@ -63,7 +63,7 @@ class SearchBar extends StatelessWidget {
 
   OutlineInputBorder getBorder(ThemeData theme) {
     return OutlineInputBorder(
-        borderSide: new BorderSide(
+        borderSide: BorderSide(
           color: theme.accentColor,
         ),
         borderRadius: BorderRadius.circular(30));

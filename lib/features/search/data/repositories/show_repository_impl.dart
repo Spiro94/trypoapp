@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:trypoapp/core/error/exceptions.dart';
 
 import '../../../../core/domain/repositories/show_repository.dart';
 import '../../../../core/error/failure.dart';
@@ -13,10 +14,15 @@ class ShowRepositoryImpl implements ShowRepository {
 
   @override
   Future<Either<Failure, List<MovieModel>>> getSavedMovies() async {
+    //? Another way to implement the return for Either statement
+    // return await Task(() => dataSource.getSavedMovies())
+    //     .attempt()
+    //     .map((either) => either.leftMap((l) => l as Failure))
+    //     .run();
     try {
       return Right(await dataSource.getSavedMovies());
-    } catch (e) {
-      return Left(ServerFailure());
+    } on BaseException catch (e) {
+      return Left(ServerFailure(e.message));
     }
   }
 
@@ -24,8 +30,8 @@ class ShowRepositoryImpl implements ShowRepository {
   Future<Either<Failure, List<TvShowModel>>> getSavedTvShows() async {
     try {
       return Right(await dataSource.getSavedTvShows());
-    } catch (e) {
-      return Left(ServerFailure());
+    } on BaseException catch (e) {
+      return Left(ServerFailure(e.message));
     }
   }
 
@@ -34,8 +40,8 @@ class ShowRepositoryImpl implements ShowRepository {
       String query) async {
     try {
       return Right(await dataSource.searchSavedMovies(query));
-    } catch (e) {
-      return Left(ServerFailure());
+    } on BaseException catch (e) {
+      return Left(ServerFailure(e.message));
     }
   }
 
@@ -44,8 +50,8 @@ class ShowRepositoryImpl implements ShowRepository {
       String query) async {
     try {
       return Right(await dataSource.searchSavedTvShows(query));
-    } catch (e) {
-      return Left(ServerFailure());
+    } on BaseException catch (e) {
+      return Left(ServerFailure(e.message));
     }
   }
 
@@ -53,8 +59,8 @@ class ShowRepositoryImpl implements ShowRepository {
   Future<Either<Failure, List<MovieModel>>> searchMovies(String query) async {
     try {
       return Right(await dataSource.searchMovies(query));
-    } catch (e) {
-      return Left(ServerFailure());
+    } on BaseException catch (e) {
+      return Left(ServerFailure(e.message));
     }
   }
 
@@ -62,8 +68,8 @@ class ShowRepositoryImpl implements ShowRepository {
   Future<Either<Failure, List<TvShowModel>>> searchTvShows(String query) async {
     try {
       return Right(await dataSource.searchTvShows(query));
-    } catch (e) {
-      return Left(ServerFailure());
+    } on BaseException catch (e) {
+      return Left(ServerFailure(e.message));
     }
   }
 }
