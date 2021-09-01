@@ -10,11 +10,11 @@
                 "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 }, {
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Moderate"
+                    "type": "moderate"
                 }]
             }, {
                 "season": 1,
@@ -22,11 +22,11 @@
                 "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 }, {
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Moderate"
+                    "type": "moderate"
                 }]
             },
             {
@@ -35,11 +35,11 @@
                 "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 }, {
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Moderate"
+                    "type": "moderate"
                 }]
             },
             {
@@ -48,11 +48,11 @@
                 "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 }, {
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Moderate"
+                    "type": "moderate"
                 }]
             },
             {
@@ -61,11 +61,11 @@
                 "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 }, {
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Moderate"
+                    "type": "moderate"
                 }]
             },
             {
@@ -74,11 +74,11 @@
                 "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 }, {
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Moderate"
+                    "type": "moderate"
                 }]
             }
         ]

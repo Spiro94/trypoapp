@@ -7,32 +7,32 @@
             "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "High"
+                    "type": "high"
                 },
                 {
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "Moderate"
+                    "type": "moderate"
                 },
                 {
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "Moderate"
+                    "type": "moderate"
                 }
             ]
         }, {
@@ -43,12 +43,12 @@
             "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "High"
+                    "type": "high"
                 }
             ]
         },
@@ -60,12 +60,12 @@
             "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "High"
+                    "type": "high"
                 }
             ]
         },
@@ -77,12 +77,12 @@
             "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "High"
+                    "type": "high"
                 }
             ]
         }, {
@@ -93,12 +93,12 @@
             "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "High"
+                    "type": "high"
                 }
             ]
         }, {
@@ -109,12 +109,12 @@
             "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "High"
+                    "type": "high"
                 }
             ]
         }, {
@@ -125,12 +125,12 @@
             "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "High"
+                    "type": "high"
                 }
             ]
         }, {
@@ -141,12 +141,12 @@
             "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "High"
+                    "type": "high"
                 }
             ]
         },
@@ -158,12 +158,12 @@
             "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "High"
+                    "type": "high"
                 }
             ]
         }, {
@@ -174,12 +174,12 @@
             "alerts": [{
                     "begins": { "hour": 1, "minute": 20, "second": 5 },
                     "ends": { "hour": 1, "minute": 40, "second": 52 },
-                    "type": "Low"
+                    "type": "low"
                 },
                 {
                     "begins": { "hour": 0, "minute": 1, "second": 5 },
                     "ends": { "hour": 0, "minute": 5, "second": 10 },
-                    "type": "High"
+                    "type": "high"
                 }
             ]
         }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trypoapp/core/domain/enums/alert_type.dart';
+import 'package:trypoapp/features/search/presentation/pages/search_movies_page/widgets/modal_sheet.dart';
 import '../../widgets/error.dart';
 import '../add_alert/add_alert.dart';
 
@@ -24,6 +26,7 @@ class _ShowsPageState extends State<SearchMoviesPage> {
   final TextEditingController _controller = TextEditingController();
   String previousText = '';
   late Bloc bloc;
+  AlertType alertType = AlertType.low;
 
   @override
   void initState() {
@@ -178,43 +181,15 @@ class _ShowsPageState extends State<SearchMoviesPage> {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              showModalBottomSheet(
-                  context: context,
-                  builder: (context) {
-                    return Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        ListTile(
-                          leading: const Icon(Icons.photo),
-                          title: const Text('Photo'),
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                        ListTile(
-                          leading: const Icon(Icons.music_note),
-                          title: const Text('Music'),
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                        ListTile(
-                          leading: const Icon(Icons.videocam),
-                          title: const Text('Video'),
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                        ListTile(
-                          leading: const Icon(Icons.share),
-                          title: const Text('Share'),
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ],
-                    );
-                  });
+              buildModalSheet(
+                context,
+                state.tvShows[index].name,
+                (type) {
+                  alertType = type;
+
+                  print(alertType);
+                },
+              );
               // Navigator.pushNamed(context, AddAlert.routeName,
               //     arguments: state.tvShows[index]);
             },
@@ -229,6 +204,7 @@ class _ShowsPageState extends State<SearchMoviesPage> {
                       'assets/images/placeholder.png',
                     ),
                     image: NetworkImage(
+                        //TODO: Update logic to include the case in which posterPath (or external image) is null/empty
                         'https://image.tmdb.org/t/p/w500${state.tvShows[index].posterPath}'),
                   ),
                 ),

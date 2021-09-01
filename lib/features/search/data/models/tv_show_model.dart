@@ -23,7 +23,9 @@ class TvShowModel extends TvShow {
       json['name'],
       json['poster_path'] ?? '',
       json['backdrop_path'] ?? '',
-      (json['episodes'] as List).map((e) => EpisodeModel.fromJson(e)).toList(),
+      (json['episodes'] as List? ?? [])
+          .map((e) => EpisodeModel.fromJson(e))
+          .toList(),
     );
   }
 }
